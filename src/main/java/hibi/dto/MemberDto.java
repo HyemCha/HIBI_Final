@@ -32,6 +32,4 @@ public class MemberDto {
 	  private Timestamp updateAt;
 	   
 	  private int status;
-	
-
 }

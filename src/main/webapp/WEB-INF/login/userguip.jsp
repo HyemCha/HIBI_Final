@@ -453,7 +453,7 @@ background: gray;
 	
 			<ul class="forget-msg-list" style="margin-right:30px; margin-top: 30px; ">	
 				<li><span>이미 가입하셨다면</span></li>
-				<a href="login">
+				<a href="${root}/login">
 				<li><button id="login4"><span>로그인</span></button></li>
 				</a>
 			</ul>

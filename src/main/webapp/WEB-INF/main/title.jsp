@@ -97,7 +97,7 @@
 				</form>
 			</div>	 
 			<ul class="chatlog">
-				<li class="chat"><a href="chat">Hi Chat🤚🏻</a></li>
+				<li class="chat"><a href="${root}/chat">Hi Chat🤚🏻</a></li>
 				
 			<c:if test="${sessionScope.loginok==null}">
 				<li class="login"><a href="${root}/login">Login</a></li>
