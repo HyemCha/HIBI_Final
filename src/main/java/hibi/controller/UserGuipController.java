@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import hibi.dto.MemberDto;
+import hibi.dto.NaverMemberDto;
 import hibi.mapper.MemberMapperInter;
 
 @Controller
@@ -21,13 +22,6 @@ public class UserGuipController {
 	@Autowired
 	MemberMapperInter mapper;
 	 
-	@GetMapping("/userguip")
-	   public String userguip()
-	   {
-		
-		
-	      return "/WEB-INF/login/userguip.jsp";
-	   }
 	
 	   @PostMapping("/insert")
 	   public String insert(@ModelAttribute MemberDto dto,
@@ -42,6 +36,25 @@ public class UserGuipController {
 	      //목록으로 이동
 	      return "redirect:/";
 	   }
+
+	@PostMapping("/login/naver/insert")
+	public String userguipnaver(
+			@ModelAttribute NaverMemberDto dto
+			)
+	{
+		mapper.insertMemberNaver(dto);
+		
+		return "redirect:/";
+	}
+	
+	@GetMapping("/userguip")
+   public String userguip()
+   {
+      return "/WEB-INF/login/userguip.jsp";
+   }
+
+
+
 	   
 //	   @GetMapping("/idcheck")
 //	   @ResponseBody //json으로 반환

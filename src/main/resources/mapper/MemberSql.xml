@@ -2,12 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="hibi.mapper.MemberMapperInter">
 	<insert id="insertMember" parameterType="user">
-		
 		insert into User (loginId,nickName,loginPassword,userPhoneNumber,userEmail,userAddress) values (
 		#{loginId},#{nickName},#{loginPassword},#{userPhoneNumber},#{userEmail},#{userAddress})
-	 
 	</insert>
-	
+
+	<insert id="insertMemberNaver" parameterType="usernaver">
+		insert into User (loginId, nickName, userPhoneNumber, userEmail, userAddress) values (
+		"naver", #{nickName}, #{userPhoneNumber}, #{userEmail}, #{userAddress})
+	</insert>	
 
 	
 	<select id="getSearchId" parameterType="String" resultType="int">

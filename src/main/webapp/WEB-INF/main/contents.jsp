@@ -80,7 +80,7 @@ img, sva{
 			    	<img class="slide-img" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxmaWx0ZXIgeD0iLTEyLjUlIiB5PSItMTAlIiB3aWR0aD0iMTI1JSIgaGVpZ2h0PSIxMjUlIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIGlkPSJhIj48ZmVPZmZzZXQgZHk9IjEiIGluPSJTb3VyY2VBbHBoYSIgcmVzdWx0PSJzaGFkb3dPZmZzZXRPdXRlcjEiLz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxLjUiIGluPSJzaGFkb3dPZmZzZXRPdXRlcjEiIHJlc3VsdD0ic2hhZG93Qmx1ck91dGVyMSIvPjxmZUNvbG9yTWF0cml4IHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMC4yIDAiIGluPSJzaGFkb3dCbHVyT3V0ZXIxIi8+PC9maWx0ZXI+PGNpcmNsZSBpZD0iYiIgY3g9IjI0IiBjeT0iMjQiIHI9IjIwIi8+PC9kZWZzPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHVzZSBmaWxsPSIjMDAwIiBmaWx0ZXI9InVybCgjYSkiIHhsaW5rOmhyZWY9IiNiIi8+PHVzZSBmaWxsPSIjRkZGIiB4bGluazpocmVmPSIjYiIvPjxwYXRoIGQ9Ik0xMiAxMmgyNHYyNEgxMnoiLz48cGF0aCBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0yNiAzMWwtNy03IDctNyIvPjwvZz48L3N2Zz4=">
 				</button>
 			    <div class="best-list">
-				    <div class="best-list-track" style="width: 1976px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+				    <div class="best-list-track" style="width: 100%; opacity: 1; transform: translate3d(0px, 0px, 0px);">
 						<div class="best-content" style="outline: none; width: 247px;">
 							 <a href="#" class="service-info" tabindex="-1" style="width: 100%; display: inline-block;">
 							    <div class="main-service-card">

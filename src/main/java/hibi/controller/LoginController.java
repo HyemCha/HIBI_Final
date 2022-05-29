@@ -33,6 +33,37 @@ public class LoginController {
 			return "/WEB-INF/login/callback.jsp";
 		}
 	
+		
+		@PostMapping("/naver/insert")
+		public String loginNaver(
+				@RequestParam String id,
+				@RequestParam String nickName,
+				@RequestParam String chkid,
+				HttpSession session
+				)
+		{
+			//로그인 성공여부 알기
+			Map<String, String> map=new HashMap<>();
+			map.put("id", id);
+			map.put("nickName", nickName);
+			int n=mapper.login(map);
+			if(n==1) {
+				//세션 유지 시간을 지정(기본은 30분)
+				session.setMaxInactiveInterval(60*60*6); //서버 안끄면 유지시간 6시간
+				//아이디와 비번이 맞는 경우
+				session.setAttribute("loginid", id);
+				//로그인한 사람의 이름
+				String name=mapper.getSearchName(id);
+				session.setAttribute("nickName",name);
+				session.setAttribute("saveid", chkid==null? "no":"yes");
+				session.setAttribute("loginok", "yes");
+				return "redirect:/"; //성공후 메인페이지로 이동
+
+			}else {
+				//아이디와 비번이 틀린경우
+				return "/WEB-INF/login/naver/callback";
+			}
+		}
 	
 		@GetMapping("/login")
 		public String loginpage()

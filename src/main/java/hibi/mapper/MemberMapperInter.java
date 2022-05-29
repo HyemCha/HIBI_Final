@@ -7,10 +7,12 @@ import org.apache.ibatis.annotations.Mapper;
 
 import hibi.dto.BoardDto;
 import hibi.dto.MemberDto;
+import hibi.dto.NaverMemberDto;
 
 @Mapper
 public interface MemberMapperInter {
 	public void insertMember(MemberDto dto);
+	public void insertMemberNaver(NaverMemberDto dto);
 	public int getSearchId(String id); 
 	public List<MemberDto> getAllMembers();
 	public String getSearchName(String id); 
