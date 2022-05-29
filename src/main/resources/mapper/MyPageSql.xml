@@ -3,21 +3,19 @@
 <mapper namespace="hibi.mapper.MyPageMapperInter">
 	
 	<select id="getMemberData" parameterType="user">
-		select * from User where (userIdx, loginPassword, nickName, userPhoneNumber, userEmail, userPhoto, userAddress, socialStatus) values 
-		(#{userIdx}, #{loginPassword}, #{nickName}, #{userPhoneNumber}, #{userEmail}, #{userPhoto}, #{userAddress}, #{socialStatus})
+		select * from User where userIdx=#{userIdx}
 	</select>
 	
-	<select id="getLikeProductData" parameterType="likeProduct">
-		select * from likeProduct where (likeIdx,productIdx) values (#{likeIdx}, #{productIdx}) 
+	<select id="getLikeProductData" parameterType="likeProduct" resultType="int">
+		select * from likeProduct where likeIdx=#{likeIdx}
 	</select>
 	
-	<select id="getProductDtoData" parameterType="product">
-		select * from product where (productIdx, productTitle, productContent, updateAt) values (#{productIdx}, #{productTitle}, #{productContent}, now())
-	</select>
+	<select id="getProductData" parameterType="product">
+		select * from Product where productIdx=#{productIdx}
+	</select>				
 
-	<select id="getCommentDtoData" parameterType="comment">
-		select * from comment where (commentIdx, commentTitle, userIdx, imageIdx, updateAt) values (#{commentIdx}, #{commentTitle}, #{productIdx}, #{userIdx}, #{imageIdx}, now())
+	<select id="getCommentData" parameterType="comment">
+		select * from Comment where commentIdx=#{commentIdx}
 	</select>
-	
 	
 </mapper>

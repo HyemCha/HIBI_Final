@@ -68,7 +68,7 @@ public class ProductController {
 /////////////////// Product table Member table
 		
 		if(upload.get(0).getOriginalFilename().equals("")) {
-			pdto.setProductPhoto("no");
+			pdto.setProductPhotos("no");
 		} else {
 			FileUtil fileUtil = new FileUtil();
 			String productPhoto ="";
@@ -85,8 +85,8 @@ public class ProductController {
 			}
 			productPhoto = productPhoto.substring(0,productPhoto.length()-1);
 			/* System.out.println(productPhoto); */
-			pdto.setProductPhoto(productPhoto);
-			System.out.println(pdto.getProductPhoto());
+			pdto.setProductPhotos(productPhoto);
+			System.out.println(pdto.getProductPhotos());
 			
 		}
 		

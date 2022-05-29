@@ -67,6 +67,7 @@
 		width: 550px;
 		height: 780px;
 		background-color: white;
+		padding-top: 10px;
 	}
 	.badgetitle{
 		width: 490px;
@@ -108,13 +109,14 @@
 		width: 120px;
 		height: 120px;
 		border-radius: 100px;
+		cursor: pointer;
 	}	
 	.imgback{
 		background: #F6F186;
 		padding: 5px 5px 5px 5px;
 		border-radius: 100px;
 	}
-  	.close {
+  	.close, #updatebgbtn{
   		position: absolute;
   		left: 30px;
   	}
@@ -129,6 +131,26 @@ $(document).ready(function(){
     $("#badgemyModal").modal();
   });
 });
+
+$(function(){
+
+	$(document).on("click",".subbimg",function(){	// 버튼을 클릭하면
+		var idx=$(this).attr("idx"); 
+		var ans=confirm("대표배지로 변경할꺼에요?")
+		if(ans){
+			type:"get",
+			dataType:"text",
+			url:"../",
+			data:{
+				"idx":idx,
+				""}
+		}
+	});
+
+}
+
+
+
 </script>
 </head>
 <c:set var="root" value="<%=request.getContextPath()%>"/>
@@ -153,7 +175,7 @@ $(document).ready(function(){
 		
 		<div class="badgecontainer">
 				<button type="button" class="btn" data-toggle="modal" data-target="#badgemyModal" id="badgemyBtn">
-					<img src="${root}/image/8.jpg" class="badgebtnimage"></button>
+					<img src="${root}/image/9.jpg" class="badgebtnimage"></button>
 					<div style="font-size: 2rem; margin-left: 50px; margin-top: 5px;">뱃지 이름</div>
 			<div class="modal fade" id="badgemyModal" role="dialog">
 				<div class="modal-dialog">
@@ -169,51 +191,31 @@ $(document).ready(function(){
 							뱃지 이름</h5>
 						</div>
 						<div class="badgelist">
-							<div class="badges">
-								<div class="imgback">
-									<img class="subbimg" src="${root}/image/8.jpg">
+							<c:forEach var="badgeNum" begin="1" end="3">
+								<div class="badges" style="margin-left: 25px;">
+									<div class="imgback">
+										<img class="subbimg" src="${root}/image/${badgeNum}.jpg">
+									</div>
+									<h5>${badgename}</h5>
 								</div>
-								<h5>첫 거래의 시작</h5>
-							</div>
-							<div class="badges" style="margin-left: 50px;">
-								<div class="imgback">
-									<img class="subbimg" src="${root}/image/8.jpg">
-								</div>
-								<h5>7일 연속 출석</h5>
-							</div>
-							<div class="badges" style="margin-left: 50px;">
-								<div class="imgback">
-									<img class="subbimg" src="${root}/image/8.jpg">
-								</div>
-								<h5>첫 댓글 남기기</h5>
-							</div>
+							</c:forEach>
 						</div>
-						
 						<div class="badgelist2">
-							<div class="badges">
-								<div class="imgback">
-									<img class="subbimg" src="${root}/image/8.jpg">
+							<c:forEach var="badgeNum" begin="4" end="6">
+								<div class="badges" style="margin-left: 25px;">
+									<div class="imgback">
+										<img class="subbimg" src="${root}/image/${badgeNum}.jpg" >
+									</div>
+									<h5>${badgename}</h5>
 								</div>
-								<h5>첫 거래의 시작</h5>
-							</div>
-							<div class="badges" style="margin-left: 50px;">
-								<div class="imgback">
-									<img class="subbimg" src="${root}/image/8.jpg">
-								</div>
-								<h5>7일 연속 출석</h5>
-							</div>
-							<div class="badges" style="margin-left: 50px;">
-								<div class="imgback">
-									<img class="subbimg" src="${root}/image/8.jpg">
-								</div>
-								<h5>첫 댓글 남기기</h5>
-							</div>
+							</c:forEach>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	
 </body>
 </html>
 

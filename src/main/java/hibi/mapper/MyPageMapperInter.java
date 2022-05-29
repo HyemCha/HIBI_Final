@@ -1,6 +1,7 @@
 package hibi.mapper;
 
 import java.sql.Timestamp;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -22,26 +23,12 @@ public interface MyPageMapperInter {
 	public LikeProductDto getLikeProductData(LikeProductDto dto);
 	
 	// 댓글
-	public CommentDto getCommentDtoData(CommentDto dto);
+	public CommentDto getCommentData(CommentDto dto);
 	
 	// 작성한 게시물
-	public ProductDto getProductDtoData(ProductDto dto);
+	public ProductDto getProductData(ProductDto dto);
 	
 	// 뱃지
-	// public BadgeDto insertbadge(BadgeDto dto); 
-	public void insertbadge(BadgeDto dto);
-	// 이거 두개는 무슨차이...?
-	//<select id="insertBadge" parameterType="badge">
-	//select into badge () values (#{}, #{}, #{}, #{})
-	//</select>
-	
-	
-	
-	
-	  
-	 
-	
-	
-	// myProduct 테이블이 있어야하는건가..?
+	public void updateBadge(Map<String, Integer> map);
 	
 }

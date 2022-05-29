@@ -31,9 +31,9 @@ public class UserGuipController {
 	
 	   @PostMapping("/insert")
 	   public String insert(@ModelAttribute MemberDto dto,
-	         @RequestParam String email,@RequestParam String email2)
+	         @RequestParam String userEmail,@RequestParam String email2)
 	   { 
-	      dto.setUserEmail(email+"@"+email2);
+	      dto.setUserEmail(userEmail+"@"+email2);
 	   
 	      
 	      
