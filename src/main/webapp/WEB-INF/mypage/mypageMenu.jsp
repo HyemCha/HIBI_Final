@@ -35,6 +35,7 @@
 </head>
 <c:set var="root" value="<%=request.getContextPath()%>"/>
 <body>
+<!-- aaaa -->
 	<div class="mypagemenucontainer">
 		<nav class="navbar navbar-inverse" style="background-color: white; border: white;">
 			<div class="container-fluid">
