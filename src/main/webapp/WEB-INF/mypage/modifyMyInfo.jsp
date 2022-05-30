@@ -243,7 +243,7 @@ background: gray;
 			var p1=$("#userPassword").val();
 			var p2=$(this).val();
 			if(p1==p2){
-				$("b.passok").html("ok").css("color","blue");;
+				$("b.passok").html("ok").css("color","blue");
 			}else{
 				$("b.passok").html("fail").css("color","red");
 			}			
