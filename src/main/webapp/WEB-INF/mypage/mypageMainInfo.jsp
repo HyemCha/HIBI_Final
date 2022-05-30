@@ -121,33 +121,33 @@
   		left: 30px;
   	}
 	
-	
+	span {
+		left: 237px;
+	}
 	
 </style>
 
 <script>
-$(document).ready(function(){
-  $("#badgemyBtn").click(function(){
-    $("#badgemyModal").modal();
-  });
-});
+
 
 $(function(){
+	
+	$(document).ready(function(){
+		$("#badgemyBtn").click(function(){
+			$("#badgemyModal").modal();
+		});
+	});
 
 	$(document).on("click",".subbimg",function(){	// 버튼을 클릭하면
-		var idx=$(this).attr("idx"); 
-		var ans=confirm("대표배지로 변경할꺼에요?")
-		if(ans){
-			type:"get",
-			dataType:"text",
-			url:"../",
-			data:{
-				"idx":idx,
-				""}
+		var src=$(this).val("src"); 
+		var ans=confirm("대표배지로 변경할꺼에요?");
+		if(ans==true){
+			$(".mainbimg").attr("src",$(this).val("src"));
+			$("#badgemyBtn .badgebtnimage").attr("src", $(this).val("src"));
 		}
 	});
 
-}
+});
 
 
 
@@ -186,7 +186,7 @@ $(function(){
 							활동 뱃지
 						</div>
 						<div class="badgemain">
-							<img class="mainbimg" src="${root}/image/8.jpg">
+							<img class="mainbimg" src="/image/8.jpg">
 							<h5>대표 뱃지<br>
 							뱃지 이름</h5>
 						</div>
@@ -194,22 +194,26 @@ $(function(){
 							<c:forEach var="badgeNum" begin="1" end="3">
 								<div class="badges" style="margin-left: 25px;">
 									<div class="imgback">
-										<img class="subbimg" src="${root}/image/${badgeNum}.jpg">
+										<img class="subbimg" src="/image/${badgeNum}.jpg">
 									</div>
 									<h5>${badgename}</h5>
 								</div>
+								<c:if test="${badgeNum%3==0}">
+									<br>
+								</c:if>
 							</c:forEach>
 						</div>
 						<div class="badgelist2">
 							<c:forEach var="badgeNum" begin="4" end="6">
 								<div class="badges" style="margin-left: 25px;">
 									<div class="imgback">
-										<img class="subbimg" src="${root}/image/${badgeNum}.jpg" >
+										<img class="subbimg" src="/image/${badgeNum}.jpg" >
 									</div>
 									<h5>${badgename}</h5>
 								</div>
 							</c:forEach>
 						</div>
+						<span class="glyphicon glyphicon-menu-down"></span>
 					</div>
 				</div>
 			</div>

@@ -15,7 +15,7 @@
 		font-size: 2rem;
 	}
 	
-	.mypagemaincontainer {
+	.mypagemaincontainer1, .section {
 		width:940px;
 		margin:0 auto;
 	}
@@ -49,79 +49,214 @@
 		float: right;
 		color: #C4C4C4;
 	}
+
+
 	
-	/* 화살표 슬라이드 위치 */
-	.leftupnextpage {
-		position: relative;
-		top: 120px;
-		right: 30px;
+	.section input[id*="slide"], .section2 input[id*="slide2"]{
+		display: none;
 	}
-	.rightupnextpage {
-		position: relative;
-		top: 120px;
-		left: 840px;
+	.section .slidewrap, .section2 .slidewrap2 {
+		max-width: 940px;
+		margin: 0 auto;
+		overflow: hidden;
 	}
-	.leftdownnextpage {
-		position: relative;
-		top: 130px;
-		right: 30px;
+	.section .slidelist, .section2 .slidelist2 {
+		white-space: nowrap;
 	}
-	.rightdownnextpage {
-		position: relative;
-		top: 130px;
-		left: 840px;
+	.section .slidelist > li, .section2 .slidelist2 > li {
+		display: inline-block;
+		vertical-align:middle;
+		width: 100%;
+		transition: all .5s;
+		
 	}
+	.section .slidelist > li > a, .section2 .slidelist2 > li > a {
+		display: block;
+		position: relative;
+	}
+	.section .slidelist > li > a img, .section2 .slidelist2 > li > a img {
+		width: 100%;
+	}
+	.section .slidewrap .slidelist label, .section2 .slidewrap2 .slidelist2 label {
+		position: absolute;
+		z-index: 10;
+		top: 50%;
+		padding: 20px;
+		cursor: pointer;
+	}
+	.section .slidelist .left, .section2 .slidelist2 .left {
+		left: 3px;
+	}
+	.section .slidelist .right, .section2 .slidelist2 .right {
+		right: 3px;
+	}
+	.section [id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+	.section [id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+	.section [id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+	.section2 [id="slide201"]:checked ~ .slidewrap2 .slidelist2 > li {transform:translateX(0%);}
+	.section2 [id="slide202"]:checked ~ .slidewrap2 .slidelist2 > li {transform:translateX(-100%);}
+	.section2 [id="slide203"]:checked ~ .slidewrap2 .slidelist2 > li {transform:translateX(-200%);}
+	
 </style>
 </head>
 <c:set var="root" value="<%=request.getContextPath()%>"/>
 <body>
-	<div class="mypagemaincontainer">
-		<div class="mypagetopic">나의 게시글</div><b class="plusmore" onclick="location.href='${root}/mypage/productList'">+more</b>
-		<hr>
-		<table>
-		<img src="${root}/image/leftnextpage.svg" class="leftupnextpage">
-			 <tr>
-			 <c:forEach var="mypostImage" begin="1" end="4">
-		   		<td style="width: 230px; height: 250px;">
-		   		<a href="${root}/product/productDetail">
-		   		<img style="width: 200px; height: 180px;" class="mpimg" src="${root}/image/${mypostImage}.jpg">
-		   		</a>
-		   		<ul class="mypageposttext">
-					<li>게시글 제목</li>
-					<li>날짜</li>
-					<li>내용</li>
-				</ul>
-		   		</td>
-	   		</c:forEach>
-	   		</tr> 
-	   	<img src="${root}/image/rightnextpage.svg" class="rightupnextpage">
-		</table>
-		<br><br>
+	
+	<div class="section2">
+		<input type="radio" name="slide2" id="slide201" checked="checked"> 
+		<input type="radio" name="slide2" id="slide202"> 
+		<input type="radio" name="slide2" id="slide203">
 		
-		<div class="mypagetopic">나의 찜</div><b class="plusmore" onclick="location.href='${root}/mypage/likeList'">+more</b>
-		<hr>
-		<table>
-		<img src="${root}/image/leftnextpage.svg" class="leftdownnextpage">
-			<tr>
-			<c:forEach var="mylikeImage" begin="5" end="8">
-			   	<td style="width: 200px;">
-			   	<a href="${root}/product/productDetail">
-			   	<img class="mlimg" src="${root}/image/${mylikeImage}.jpg">
-			   	</a>
-			   	<ul>
-					<li>게시글 제목</li>
-					<li>날짜</li>
-					<li>내용</li>
-				</ul>
-			   	</td>
-		   	</c:forEach>
-		   	</tr>
-	   	<img src="${root}/image/rightnextpage.svg" class="rightdownnextpage">
-		</table>
+		<div class="slidewrap2">
+			<div class="mypagetopic">작성한 게시물</div><b class="plusmore" onclick="location.href='${root}/mypage/likeList'">+more</b>
+			<hr>
+			<ul class="slidelist2">
+				<li>
+					<a>
+						<div style="display: flex;">
+							<label for="slide203" class="left" style="background: url(${root}/image/leftnextpage.svg) center center / 100% no-repeat;"></label>
+							<c:forEach var="mylikeImage2" begin="1" end="4">
+								<div class="zzz2" style="width: 235px; text-align: center;">
+									<a href="${root}/product/productDetail">
+								   		<img class="mlimg" src="${root}/image/${mylikeImage2}.jpg">
+								   	</a>
+								   	<ul>
+										<li>게시글 제목</li>
+										<li>날짜</li>
+										<li>내용</li>
+									</ul>
+								</div>
+							</c:forEach>
+							<label for="slide202" class="right" style="background: url(${root}/image/rightnextpage.svg) center center / 100% no-repeat;"></label>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a>
+						<div style="display: flex;">
+							<label for="slide201" class="left" style="background: url(${root}/image/leftnextpage.svg) center center / 100% no-repeat;"></label>
+							<c:forEach var="mylikeImage2" begin="5" end="8">
+								<div class="zzz2" style="width: 235px; text-align: center;">
+									<a href="${root}/product/productDetail">
+								   		<img class="mlimg" src="${root}/image/${mylikeImage2}.jpg">
+								   	</a>
+								   	<ul>
+										<li>게시글 제목</li>
+										<li>날짜</li>
+										<li>내용</li>
+									</ul>
+								</div>
+							</c:forEach>
+							<label for="slide203" class="right" style="background: url(${root}/image/rightnextpage.svg) center center / 100% no-repeat;"></label>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a>
+						<div style="display: flex;">
+							<label for="slide202" class="left" style="background: url(${root}/image/leftnextpage.svg) center center / 100% no-repeat;"><label>
+							<c:forEach var="mylikeImage2" begin="9" end="10">
+								<div class="zzz2" style="width: 235px; text-align: center;">
+									<a href="${root}/product/productDetail">
+								   		<img class="mlimg" src="${root}/image/${mylikeImage2}.jpg">
+								   	</a>
+								   	<ul>
+										<li>게시글 제목</li>
+										<li>날짜</li>
+										<li>내용</li>
+									</ul>
+								</div>
+							</c:forEach>
+							<label for="slide201" class="right" style="background: url(${root}/image/rightnextpage.svg) center center / 100% no-repeat;"></label>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
 	</div>
 	
 	
+	<div class="section">
+		<input type="radio" name="slide" id="slide01" checked="checked"> 
+		<input type="radio" name="slide" id="slide02"> 
+		<input type="radio" name="slide" id="slide03">
+		
+		<div class="slidewrap">
+			<div class="mypagetopic">나의 찜</div><b class="plusmore" onclick="location.href='${root}/mypage/likeList'">+more</b>
+			<hr>
+			<ul class="slidelist">
+				<li>
+					<a>
+						<div style="display: flex;">
+							<label for="slide03" class="left" style="background: url(${root}/image/leftnextpage.svg) center center / 100% no-repeat;"></label>
+							<c:forEach var="mylikeImage" begin="1" end="4">
+								<div class="zzz" style="width: 235px; text-align: center;">
+									<a href="${root}/product/productDetail">
+								   		<img class="mlimg" src="${root}/image/${mylikeImage}.jpg">
+								   	</a>
+								   	<ul>
+										<li>게시글 제목</li>
+										<li>날짜</li>
+										<li>내용</li>
+									</ul>
+								</div>
+							</c:forEach>
+							<label for="slide02" class="right" style="background: url(${root}/image/rightnextpage.svg) center center / 100% no-repeat;"></label>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a>
+						<div style="display: flex;">
+							<label for="slide01" class="left" style="background: url(${root}/image/leftnextpage.svg) center center / 100% no-repeat;"></label>
+							<c:forEach var="mylikeImage" begin="5" end="8">
+								<div class="zzz" style="width: 235px; text-align: center;">
+									<a href="${root}/product/productDetail">
+								   		<img class="mlimg" src="${root}/image/${mylikeImage}.jpg">
+								   	</a>
+								   	<ul>
+										<li>게시글 제목</li>
+										<li>날짜</li>
+										<li>내용</li>
+									</ul>
+								</div>
+							</c:forEach>
+							<label for="slide03" class="right" style="background: url(${root}/image/rightnextpage.svg) center center / 100% no-repeat;"></label>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a>
+						<div style="display: flex;">
+							<label for="slide02" class="left" style="background: url(${root}/image/leftnextpage.svg) center center / 100% no-repeat;"><label>
+							<c:forEach var="mylikeImage" begin="9" end="10">
+								<div class="zzz" style="width: 235px; text-align: center;">
+									<a href="${root}/product/productDetail">
+								   		<img class="mlimg" src="${root}/image/${mylikeImage}.jpg">
+								   	</a>
+								   	<ul>
+										<li>게시글 제목</li>
+										<li>날짜</li>
+										<li>내용</li>
+									</ul>
+								</div>
+							</c:forEach>
+							<label for="slide01" class="right" style="background: url(${root}/image/rightnextpage.svg) center center / 100% no-repeat;"></label>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>	
 	
 	
 </body>
 </html>
+
+
+
+
+
+
+
+
