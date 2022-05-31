@@ -184,7 +184,7 @@ $(function(){
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<div class="profilephotopage">
 						<div class="profilephototitle">
-							프로필 사진 변경하기
+							프로필 사진 변경하기이이이
 						</div>
 						<div class="profilephotomain">
 							<img class="mainppimg" src="/image/8.jpg">
