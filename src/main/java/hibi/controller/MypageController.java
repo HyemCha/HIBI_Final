@@ -73,4 +73,5 @@ public class MypageController {
 		return "/sub5/mypage/secession";
 	}
 	
+
 }
